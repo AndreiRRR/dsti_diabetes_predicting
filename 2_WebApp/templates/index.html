@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DIABETS PREDISTION</title>
+    <style type="text/css" media="screen">
+    body {
+        background-color: #F9F9F9;
+        background-image: url(images/bg3.png);
+        background-position: center top;
+        background-repeat: repeat;
+        text-shadow: #FFFFFF 0px 1px 0px;
+        font-family: "Georgia", "Times", serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .center-screen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 10vh;
+    }
+    </style>
+</head>
+<body>
+
+<small>Powered by : DSTI Group Project solution, 2025</small>
+
+<hr width="100%" size="2" color="green" noshade>
+
+<table><tr>
+    <th><h1>DIABETES PREDICTION</h1></th>
+</tr></table>
+
+<hr width="100%" size="2" color="green" noshade>
+
+<small style="font-size: 14px;">Put patient's data in the form below (all fields must be filled in) and click on </small>
+<small style="font-size: 14px; background: green; color: white; font-family:Arial;"> &nbsp;CHECK DIABETES&nbsp;  </small>
+<small style="font-size: 14px;"> &nbsp; button. </small>
+
+<table border="0">
+    <tr>
+    <th align="left">
+    <form id="dataform" method="POST" action="http://127.0.0.1:5000/" >
+        <p><input type="text" name="PatientID" value={{ PatientID }}><label> PatientID </label> </p>
+        <p><input type="text" name="Pregnancies" value={{ Pregnancies }}><label> Pregnancies </label></p>
+        <p><input type="text" name="PlasmaGlucose" value={{ PlasmaGlucose }}><label> PlasmaGlucose </label></p>
+        <p><input type="text" name="DiastolicBloodPressure" value={{ DiastolicBloodPressure }}><label> DiastolicBloodPressure </label></p>
+        <p><input type="text" name="TricepsThickness" value={{ TricepsThickness }}><label> TricepsThickness </label></p>
+        <p><input type="text" name="SerumInsulin" value={{ SerumInsulin }}><label> SerumInsulin </label></p>
+        <p><input type="text" name="BMI" value={{ BMI }}><label> BMI </label></p>
+        <p><input type="text" name="DiabetesPedigree" value={{ DiabetesPedigree }}><label> DiabetesPedigree</label></p>
+        <p><input type="text" name="Age" value={{ Age }}><label> Age </label></p>
+        <input type="submit" value="CHECK DIABETES" style="font-size: 18px; background: green; color: white; margin: 4px 2px;">
+    </form>
+    </th>
+        <th></th>
+   </tr>
+    <tr><th align="left"></th><th align="left"></th></tr>
+    <tr>
+        <th align="left">
+        <form>
+            <button type="submit" formaction="http://127.0.0.1:5000/" >  RESET FORM  </button>
+        </form>
+        </th>
+        <th>
+            <div class="center-screen">
+            {% if message %}
+                {% if message == "Prediction : NO DIABETES" %}
+                <h2 style="color: forestgreen">{{ message }}</h2>
+                {% else %}
+                <h2 style="color: red">{{ message }}</h2>
+                {% endif %}
+            {% endif %}
+            </div>
+        </th>
+    </tr>
+</table>
+
+<hr width="100%" size="2" color="green" noshade>
+
+</body>
+</html>
